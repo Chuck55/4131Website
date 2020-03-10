@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> My Form </title>
+	<meta charset="UTF-8">	
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="formjs.js"></script>
+</head>
+
+<body>
+	<div class="navigation">
+		<a href="myWidgets.html">Widget</a>
+		<a href="myContacts.html">Contacts</a>
+		<a href="myForm.html">Form</a>
+	</div>
+	<h1>My Form</h1>
+
+	<form action="http://localhost:9001" method="post">
+		<table class = "table2">
+			<tr>
+				<th>Name:</th>
+				<th><input name = "name" type = "text" id = "name" required></th>
+			</tr>
+			<tr>
+				<th>Email:</th>
+				<th><input name = "email" type = "email" id = "email" required></th>
+			</tr>
+			<tr>
+				<th>Address:</th>
+				<th><input name = "address" type = "text" id = "address" required></th>
+			</tr>
+			<tr>
+				<th>Favorite Place:</th>
+				<th><input name = "place" type = "text" id = "place" required></th>
+			</tr>
+			<tr>
+				<th>URL:</th>
+				<th><input name = "url" type = "url" id = "URL" required></th>
+			</tr>
+			<tr>
+				<th><input type = "submit" value = "Submit" onclick= "testInput('name', 'email', 'address', 'place', 'URL')"></th>
+			</tr>
+		</table>
+	</form>
+
+
+	<div id="map2"></div>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyAnFmgCyt1fwHvYVBv4TvLB-QWPqLa-FBc&libraries=places&callback=initMap"
+		type="text/javascript"></script>
+</body>
+
+</html>

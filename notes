@@ -1,0 +1,35 @@
+	response_message = ""
+	x_REQUEST = (x.split(' ')[0])
+	x_FILE = (x.split(' ')[1])
+	x_HTTP = (x.split(' ')[2])
+	file_Name = x_FILE[1:]
+	status_OK = "HTTP/1.1 200 OK\r\n"
+	status_Forbidden = "HTTP/1.1 403 Forbidden\r\n"
+	status_NotFound = "HTTP/1.1 404 Not Found\r\n"
+	status_NotAllowed = "HTTP/1.1 405 Method Not Allowed\r\n"
+	status_NotAcceptable = "HTTP/1.1 406 Not Acceptable\r\n"
+	content_length = "Content-Length: "
+	content_type = "Content-Type: "
+	position = print(x.Find('Accept: '))
+	if x_REQUEST == "GET" :
+		if path.exists(file_Name) == False :
+		#send back error response file does not exist
+		if os.access(file_Name, os.F_OK ) == False :
+		#File is not accessible
+		file_size = os.path.getsize(file_Name);
+		content_length=content_length + file_size + "\r\n";
+		file_open = open(file_Name, "rb")
+		file_contents = file_open.read(file_size)
+
+		if "text/html " in x[position:] or "*/* " in x[position:]:
+			file_contents.encode('utf-8')
+			content_type = content_type + "text/html; charset=iso-8859-1" + "\r\n"
+			build_request(status_OK, content_type, content_length, file_contents)
+		if "image/*" in x[position:] or "*/* " in x[position:]:
+			content_type = content_type + "image/png" + "\r\n"
+			build_request(status_OK, content_type, content_length, file_contents)
+		if "audio/*" in x[position:] or "*/* " in x[position:]:
+			content_type = content_type + "audio/mpeg" + "\r\n"
+			build_request(status_OK, content_type, content_length, file_contents)	elif x_REQUEST == "HEAD" :
+	elif x_REQUEST == "POST" :
+	else :

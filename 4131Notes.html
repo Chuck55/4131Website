@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Contacts </title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="styles2.css">
+<script>
+/**var firstNumber; // first string entered by user
+var secondNumber; // second string entered by user
+var sum; // sum of number1 and number2
+var product; // product of number1 and number2
+firstNumber = window.prompt( "Enter first integer" );
+secondNumber = window.prompt( "Enter second integer" );
+sum = firstNumber + secondNumber; // add the numbers
+product = firstNumber * secondNumber; //multiply the numbers
+document.writeln( "<h1>The sum is " + sum + "</h1>" );
+document.writeln("<h1>The product is " + product + "</h1>" );
+**/
+function KillMe(name, gender){
+	window.alert("The never ending sound of our doom is approaching")
+}
+window.onload = function() {
+	// put this on the element after the element has loaded
+	// Otherwise, put at the bottom of the script file to prevent null
+	document.getElementById("BigButton").addEventListener("dblclick", function(){
+	document.getElementById("BigDiv").innerHTML = "Hello World";
+	document.getElementById("BigDiv").setAttribute("class", "democlass");
+	document.getElementById("BigDiv").class = "democlass";
+});
+	startClock();
+}
+	//<body onclick="alert(`the bubbling doesn't reach here`)">
+	//  <button onclick="event.stopPropagation()">Click me</button>
+	//</body>	
+function startClock() {
+	int = setInterval(function(){clock()},1000);
+}
+function clock(){
+	var datetoday=new Date();
+	var timenow=datetoday.toLocaleTimeString();
+	document.getElementById("clock").value=timenow;
+}
+function stopClock(){
+	int=clearInterval(int)
+	document.getElementById("clock").value="";
+}
+function calc(value1, value2, value3){
+  	console.log(value1);
+  	console.log(value2);
+  	console.log(value3);
+  	window.alert(value1);
+  	window.alert(value2);
+  	window.alert(value3);
+  }
+function testRegularExpression(){
+	console.log(/Dan[0-9][3-6]/.test("The name Dan9 is like plan9"));
+	// ^ and $ makes sure that the entire line is matched with the condition
+	//+ plus symbol means that the line must consist of one or more of the characters with the + sign after it
+	//^ makes sure that only the start is matched with the condition
+	//  $ makes sure that only the end is matched with the condition
+	// []{3} tells you how many characters should be like this in a sequence
+	/**
+		If a caret (^) is at the beginning of the entire regular expression, it matches the beginning of a line.
+
+		If a dollar sign ($) is at the end of the entire regular expression, it matches the end of a line.
+
+		If an entire regular expression is enclosed by a caret and dollar sign (^like this$), it matches an entire line.
+
+		This expression...	matches this...	but not this...
+		^(the cat).+	the cat runs	see the cat run
+		.+(the cat)$	watch the cat	the cat eats
+		So, to match all strings containing just one characters, use "^.$".
+	**/
+	//console.log(/^[a-z]+/.test("aa"));
+	//console.log(/[^abc]+$/.test("wwa"));
+	console.log(/(?= ^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$) (?= ?!(^\s|\s$))/.test("785)2261305"));
+	// ? means try and match if you can. If it doesnt exist in the format, that is fine.
+	// The phone number above passes, even if it only has one ) or one ( or only one -
+	// The [x]{3, 4} means match any sequence that has a sequence of 3-4 xs
+	// var patt1 = /is(?! all)/gi; tests whether or not there is an all behind a is
+	// n* makes sure that 
+}
+</script>
+</head>
+	<body style="background-color:white">
+		input Type:  
+		Color,
+		Date
+		Datetime
+		Datetime-local
+		Email
+		Month
+		Number
+		Range
+		Search, tel, time , url, week
+		<br>
+		<h1 style = "text-align:center;"> FORMS </h1>
+		<form>
+		  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+		  <label for="vehicle1"> I have a bike</label><br>
+		  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+		  <label for="vehicle2"> I have a car</label><br>
+		  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+		  <label for="vehicle3"> I have a boat</label><br><br>
+		  <input type="submit" onclick = "calc(vehicle1.checked, vehicle2.checked, vehicle3.checked)">
+		 </form>
+		 <br>
+		<form action="/action_page.php">
+			 <label for="fname">First name:</label><br>
+			 <input type="text" id="fname" name="fname"><br>
+			 <br>
+			<label>Email</label> <br>
+			<input type = “email” placeholder = “name@domain.com” required /> 
+			<br><br>
+			<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+		    <label for="vehicle1"> I have a bike</label><br>
+		    <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+		    <label for="vehicle2"> I have a car</label><br>
+			<input type="radio" id="male" name="gender" value="male">
+			<label for="male">Male</label><br>
+			<input type="radio" id="female" name="gender" value="female">
+			<label for="female">Female</label><br>
+			<input type = "submit" value = "Submit" onclick="KillMe(gender.value, fname.value)">
+
+		</form>
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<-- Place holder is a hint to what you want the person to write, not a value, as it does not count towards the value -->
+
+		<h1 style="color:blue;text-align:center;">
+			STYLING --> This is a heading
+		</h1>
+		<p style="color:red;">This is a paragraph.</p>
+
+		<h1 style="color:black;text-align:center;">
+			TABLES
+		</h1>
+		<table align = "center">
+			<thead>
+				<tr>
+					<th>This</th>
+					<th>Is</th>
+					<th>The</th>
+					<th>TABLE</th>
+				</tr>
+			</thead>
+			<tr>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+
+			</tr>
+			<tr>
+				<th>Wow</th>
+				<th>You</th>
+				<th>Weird</th>
+				<th>Kid</th>
+
+			</tr>
+		</table>
+	<div class = "mbp">
+		Margin is on the inside
+		border is in the middle
+		and padding is on the outside
+		responsive design is setting each of the 
+		divs and such to a percentage of the webpage,
+		so when the webpage changes, the items on the webpage
+		change size to fit
+	</div>
+	<div class = "mbp">
+		The HTML DOM is a standard for how to represent/store, get,
+		change, add, or delete HTML elements.
+		The HTML DOM defines the objects and properties of all HTML
+		elements, and the methods(interface) to access them.
+		Everything is a Node, when HTML elements become objects, attributes
+		are turned into properties. Very similar, however, attrivutes are a 1 to 1 connection that represents the 
+		initial state of the element and are always strings, while properties represent the current value
+		of the element
+		You can modify the webpage by modifying the DOM through Javascript
+		Javascript can :
+		Add new HTML to the page, change the existing content, modify styles.
+		React to user actions, run on mouse clicks, pointer movements, key presses
+		JavaScript Hoisting – in JavaScript, a variable can be used
+		before it has been declared, not putting var when declaring and assigning 
+		a variable makes it global. You must use var when declaring variable
+	</div>
+	<div class = "mbp">
+		[abc]	Find any character between the brackets<br>
+		[^abc]	Find any character NOT between the brackets<br>
+		[0-9]	Find any character between the brackets (any digit)<br>
+		[^0-9]	Find any character NOT between the brackets (any non-digit)<br>
+		(x|y)	Find any of the alternatives specified<br>
+	</div>
+
+	<div class = "mbp">
+			setInterval --> (code,millisec)
+			code is the function that will be called every millisecs that pass
+				<input type="text" id="clock">
+				<button onclick="stopClock()">Stop</button>
+				<button onclick="startClock()">Start</button>
+	</div>
+	<div class = mbp>
+		<button onclick="testRegularExpression()"> click me</button>
+	</div>
+	<div class = "mbp">
+		A closure allows a function to be able to hold onto certain values
+		,such as free variables, which are variables that are defined locally, but 
+		exist within an enclosed scope. Without a closure, these variables are 
+		set to references, so when it is used later on, the value of the variable
+		changes to what it was last modified to. 
+		Closure will keep a record of all the current scope it is wrapped in, so in a for loop
+		without another closure to limit the scope, the changes made to any variable in the scope
+		will permeate to other closures made in the scope. We want to create a scope where
+		there is no change the variable, so putting a new scope inside the for loop will save the values of
+		the current loop, since the values are encasulated in a scope
+		If you define a closure within a scope, and the value of the variables that the closure
+		saves does not change within the scope the closure is in, then the value of the variables will not change either 
+		outside scope of the closure should be static, no chance to change
+	</div>
+	<div class = "mbp">
+		Event Listeners are added via javascript. Will add the event handler to the button by getting the id of the button.
+		Based on the event the event listener is listening for, the event handler will execute
+		a function. Make sure that the getElementById is used after all elements in the DOM have been loaded in
+		or else it may return null, race condition. The event handler is the function that is called after
+		the event has been detected. 
+		The event can be captured either in the bubbling phase or the capture phase. 
+		Set useCapture to true if you do not want bubbling, like an event especially for a child element
+		Bubbling makes sure the child element's event is triggered first rather than capturing, where the 
+		parent's event is triggered first
+		<br>
+		Examples of Events and Event handlers are
+		
+			click		onClick
+			change		onChange
+			focus		onFocus
+			load		onLoad
+			mouseover	onMouseOver
+			select		onSelect
+		 <br>
+		 Event travels from the DOM to the target element, triggers on the target element,
+		 and sends the response back up to the DOM, when an even is fired onto an element,
+		 it is delivered onto the element's event handler, then the element's parent event handler, 
+		 etc. To make sure it only happens on the element you want, 
+		
+		Remove an event listener by calling removeEventListener
+		with the same arguments that you passed to addEventListener to register the event handler
+		<button id= "BigButton"> click me</button>
+		<div id= "BigDiv"></div>
+	</div>
+	<div class = "mbp">
+		URLS are location dependent, if resource is moved, it becomes
+		invalid
+		Relative URL --> Used when the referenced resource is on the same host machine as the referring resource.
+						 Does not specify the hostname or domain, href = "/myForm.html"
+		Absolute --> Specifies the complete access path for the named resources in the Internet
+		URL is an address, while URN is a descriptor or an identification. URL is house address, URN is ISBN number
+		All URLS and URNs are URIs
+		
+		URLS are formatted like the following : protocol://hostname:port/path-and-file-name
+			protocol 	  --> protocol used by the server, HTTP, Telnet, etc
+			hostname 	  --> Domain Name or IP address
+			port 	 	  --> TCP port number the server is listening from and port is reading to
+			path/file     --> The name and location of the requested resource
+			Query String  --> ?param1=value1&param2=value2
+	</div>
+
+	<div class = "mbp">
+		What does the server do?
+			1. Server listens for a request from the client, after getting the
+			request, it parses the request, and returns the contents of the
+			file requested in the server's directory
+			2. Server listens for a request from the client, after getting the 
+			request, it parses the request and executes a program in the server
+			and returns the output, example is the forms page
+			3. Server is unable to fufill request and returns error message
+		Request Message: GET /docs/index.html HTTP/1.1
+						 Host: www.test101.com 
+		Request Message: Request-Type/File-and-Path Protocol
+		Response	   : HTTP/1.1 200 OK
+		Response	   : Protocol Status-Code Message
+	</div>
+	<div class = "mbp">
+		- TCP/ip is the network that http sends request and reponses through. 
+		- IP obtains the address and TCP guarantees delivery of data to that address.
+		- TCP is the transport protocol, IP is the network PROTOCOL, dealing with addressing and routing
+		- DNS converts IP to URL
+		Consists of 2 protocols, TCP and UDP
+		- TCP is responsible for establishing connection between 2 machines, then transporting
+		  all the information from one device to another 
+		- TCP is reliable, acknowledgement is expected, will resend if not recieved by receiver
+		- UPD is not reliable, but is used when reliability is not critical
+		
+		- IP is a network layer protocol, each machine in an IP network
+		  has an ip address, and the IP software is responsible for routing a message
+		  from the source IP to the destination IP
+		- In an ip machine, TCP supports many sockets and ports. 
+		- In an IP network, each machine has an IP address
+	</div>
+	<div class = "mbp">
+		STATUS CODES:
+		404 --> NOT FOUND
+		200 --> OK
+		405 --> NOT ALLOWED
+		403 --> FORBIDDEN
+		1xx (Informational): Request received, server is continuing the
+		process.
+		2xx (Success): The request was successfully received, understood,
+		accepted and serviced.
+		3xx (Redirection): Further action must be taken in order to
+		complete the request.
+		4xx (Client Error): The request contains bad syntax or cannot be
+		understood.
+		5xx (Server Error): The server failed to fulfill an apparently valid
+		request.
+	</div>
+	</body>
+</html>
+
