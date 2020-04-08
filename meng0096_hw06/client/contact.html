@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+      <nav class="navbar navbar-default">
+          <div class="container-fluid">
+              <ul class="nav navbar-nav">
+                  <li><a href="index.html"><b>Home</b></a></li>
+                  <li><a href="contact.html"><b>Contact</b></a></li>
+                  <li><a href="addContact.html"><b>Add Contact</b></a></li>
+                  <li><a href="stock.html"><b>Stock Page</b></a></li>
+              </ul>
+          </div>
+      </nav>
+      <br><br>
+      <div class="container">
+          <table class="table" id="contactTable">
+              <thead>
+                  <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Address</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Favorite Place</th>
+                  </tr>
+              </thead>
+              <tbody></tbody>
+          </table>
+      </div>
+    <script type="text/javascript">
+        var url = '../contact.json';
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = JSON.parse(this.responseText);            
+                addTable(data);
+            }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
+
+        function addTable(data) {
+            var i = 0;
+            console.log(JSON.stringify(data.contact[0].name));
+            for(i = 0; i < data.contact.length; i++) {
+                var name = JSON.stringify(data.contact[i].name).slice(1,-1);
+                var email = JSON.stringify(data.contact[i].email).slice(1,-1);
+                var address = JSON.stringify(data.contact[i].address).slice(1,-1);
+                var phoneNumber = JSON.stringify(data.contact[i].phoneNumber).slice(1,-1);
+                var place = JSON.stringify(data.contact[i].favoritePlace).slice(1,-1);
+                var URL = JSON.stringify(data.contact[i].favoritePlaceURL).slice(1,-1);
+                var tblRow = "<tr>" + "<td>" + name + "</td>" + "<td>" + email + "</td>" + "<td>" + address + "</td>" + "<td>" + phoneNumber + "</td>" + "<td><a href=\"" + URL + "\">" + place + "<a></td>" + "</tr>";
+                document.getElementById("contactTable").innerHTML += tblRow;
+            }
+        }
+    </script>
+  </body>
+</html>

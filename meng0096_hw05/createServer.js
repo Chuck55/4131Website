@@ -20,10 +20,14 @@ http.createServer(function (req, res) {
     addContactPage(req,res);
   }
   else if (req.url === '/contact.json'){
+  console.log("Yo man")
 	returnJSON(req,res);
   }
   else if (req.url === '/postContactEntry') {
       postData(req, res);
+  }
+  else if (req.url === '/stock.html'){
+    stock(req, res);
   }
   else{
     res.writeHead(404, {'Content-Type': 'text/html'});
@@ -31,7 +35,17 @@ http.createServer(function (req, res) {
   }
 }).listen(9001);
 
-
+function stock(req, res){
+  fs.readFile('client/stock.html', function(err, html) {
+    if(err) {
+      throw err;
+    }
+    res.statusCode = 200;
+    res.setHeader('Content-type', 'text/html');
+    res.write(html);
+    res.end();
+  });
+}
 function indexPage(req, res) {
   fs.readFile('client/index.html', function(err, html) {
     if(err) {
@@ -88,36 +102,13 @@ function postData (req, res){
 		if(err) {
 			throw err;
   }		
-    var name1 = body.search("contactName");
-    var name2 = (body.substring(name1)).search("=");
-    var name3 = (body.substring(name1)).search("&");
-    var nameValue = (body.substring(name1)).substring(name2+1, name3);
-
-    var email1 = body.search("email");
-    var email2 = (body.substring(email1)).search("=");
-    var email3 = (body.substring(email1)).search("&");
-    var emailValue = (body.substring(email1)).substring(email2+1, email3);
-
-    var address1 = body.search("address");
-    var address2 = (body.substring(address1)).search("=");
-    var address3 = (body.substring(address1)).search("&");
-    var addressValue = (body.substring(address1)).substring(address2+1, address3);
-
-    var phone1 = body.search("phoneNumber");
-    var phone2 = (body.substring(phone1)).search("=");
-    var phone3 = (body.substring(phone1)).search("&");
-    var phoneValue = (body.substring(phone1)).substring(phone2+1, phone3);
-
-    var place1 = body.search("favoritePlace");
-    var place2 = (body.substring(place1)).search("=");
-    var place3 = (body.substring(place1)).search("&");
-    var placeValue = (body.substring(place1)).substring(place2+1, place3);
-
-    var URL1 = body.search("favoritePlaceURL");
-    var URL2 = (body.substring(URL1)).search("=");
-    var URL3 = (body.substring(URL1)).search("&");
-    var URLValue = (body.substring(URL1)).substring(URL2+1);
-
+  var objBody = qs.parse(body);
+  var nameValue = decodeURI(objBody.contactName);
+  var emailValue = decodeURI(objBody.email);
+  var addressValue = decodeURI(objBody.address);
+  var phoneValue = decodeURI(objBody.phoneNumber);
+  var placeValue = decodeURI(objBody.favoritePlace);
+  var URLValue = decodeURI(objBody.favoritePlaceURL);
 		var name = ',{"name":"' + nameValue + '",';
 		var email = '"email":"' + emailValue + '",';
 		var address = '"address":"' + addressValue + '",';
@@ -126,8 +117,12 @@ function postData (req, res){
     var favoriteURL = '"favoritePlaceURL":"' + URLValue + '"}';
 
 		var total = name + email + address + phoneNumber + favoritePlace +favoriteURL;
-		var fd = fs.openSync('contact.json', 'a+');
-		var result = json.slice(0, -3) + total + json.slice(-3);
+		var fd = fs.openSync('contact.json', 'r+');
+    var result = json.slice(0, -3) + total + json.slice(-3);
+    console.log("This is ::" + json.slice(0, -3));
+    console.log("This is ::" +total);
+    console.log("This is ::" +json.slice(-3));
+
 		fs.writeFile(fd, result, noop);
 	});
 	fs.readFile('client/contact.html', function(err, html) {
@@ -135,7 +130,7 @@ function postData (req, res){
 		throw err;
     }
     res.writeHead(302, {
-      'Location': 'client/contact.html',
+      'Location': '/contact.html',
       'Content-Type': 'text/html'
     });
 		res.end();

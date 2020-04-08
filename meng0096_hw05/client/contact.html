@@ -41,14 +41,21 @@
                 addTable(data);
             }
         };
-        xmlhttp.open("GET", url, true);
+        xhttp.open("GET", url, true);
         xhttp.send();
 
         function addTable(data) {
             var i = 0;
-            for(i = 0; i < data.length; i++) {
-                var tblRow = "<tr>" + "<td>" + JSON.stringify(data[i].name) + "</td>" + "<td>" + JSON.stringify(data[i].email) + "</td>" + "<td>" + JSON.stringify(data[i].address) + "</td>" + "<td>" + JSON.stringify(data[i].phoneNumber) + "</td>" + "</td>" + "<td>" +JSON.stringify(data[i].favoritePlace) + "</td>" + "</tr>";
-                document.getElementById("table").innerHTML += tblRow;
+            console.log(JSON.stringify(data.contact[0].name));
+            for(i = 0; i < data.contact.length; i++) {
+                var name = JSON.stringify(data.contact[i].name).slice(1,-1);
+                var email = JSON.stringify(data.contact[i].email).slice(1,-1);
+                var address = JSON.stringify(data.contact[i].address).slice(1,-1);
+                var phoneNumber = JSON.stringify(data.contact[i].phoneNumber).slice(1,-1);
+                var place = JSON.stringify(data.contact[i].favoritePlace).slice(1,-1);
+                var URL = JSON.stringify(data.contact[i].favoritePlaceURL).slice(1,-1);
+                var tblRow = "<tr>" + "<td>" + name + "</td>" + "<td>" + email + "</td>" + "<td>" + address + "</td>" + "<td>" + phoneNumber + "</td>" + "<td><a href=\"" + URL + "\">" + place + "<a></td>" + "</tr>";
+                document.getElementById("contactTable").innerHTML += tblRow;
             }
         }
     </script>
