@@ -9,9 +9,6 @@
   "author": "meng0096",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "module": "^1.2.5",
-    "mysql": "^2.18.1",
     "xmlhttprequest": "^1.8.0"
   }
 }

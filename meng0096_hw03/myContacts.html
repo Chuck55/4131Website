@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> Contacts </title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="Contacts.js"></script>
+</head>
+
+<body>
+	<div class="navigation">
+		<a href="myWidgets.html">Widget</a>
+		<a href="myContacts.html">Contacts</a>
+		<a href="myForm.html">Form</a>
+	</div>
+	<div class="left">
+		<table id="table" class = "table2">
+			<tr>
+				<th> Name </th>
+				<th> Email </th>
+				<th> Phone Number </th>
+				<th> Address </th>
+				<th> Favorite Place </th>
+			</tr>
+			<tr onmouseover="changeMom()" onmouseout="changeMom2()">
+				<td> Shufang Jia
+					<img id = "mom" alt = "mom" src = "mom.jpg" class = "picture">
+				</td>
+				<td> Shufang.jia@gmail.com </td>
+				<td> 785-226-1467 </td>
+				<td id="location_mom"> 206 Church St SE, Minneapolis, MN 55455 </td>
+				<td> <a href="https://www.mcdonalds.com/us/en-us.html"> Mcdonalds </a> </td>
+			</tr>
+			<tr onmouseover="changeDad()" onmouseout="changeDad2()">
+				<td> Fanguang Meng
+					<img id = "dad" alt = "dad" src = "dad.jpg" class = "picture">
+			</td>
+				<td> Fanguangm@hotmail.com </td>
+				<td> 785-226-14678 </td>
+				<td id="location_dad"> 200 Union St SE, Minneapolis, MN 55455 </td>
+				<td> <a href="https://www.facebook.com/"> FaceBook </a> </td>
+			</tr>
+			<tr onmouseover="changeFish()" onmouseout="changeFish2()">
+				<td> Sapphire the Fish
+					<img id = "fish" alt = "fishy" src = "fish.jpg" class = "picture">
+			</td>
+				<td> Wackadoodledoo@gmail.com </td>
+				<td> 785-226-14623 </td>
+				<td id="location_fish"> Coffman Memorial Union 100 Union St. SE, Minneapolis, MN 55455 </td>
+				<td> <a href="https://seaworld.com/"> Sea World </a> </td>
+			</tr>
+		</table>
+	</div>
+	<div class="picture2">
+		<img id = "placement" src = "stick.jpg" alt = "stick" class = "picture2">
+		<div>
+			<button onclick= "int=setInterval(function(){slideshow()},1000)"> Start </button>
+			<button onclick="int=clearInterval(int)"> Stop </button>
+		</div>
+	</div>
+	<div id="map"></div>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnFmgCyt1fwHvYVBv4TvLB-QWPqLa-FBc&callback=initMap&libraries=places"
+		type="text/javascript"></script>
+	<form class="google_form">
+		<select name="facilities" onclick="reveal(this.value)">
+			<option value="restaurant">restaurant</option>
+			<option value="hospital">hospital</option>
+			<option value="parking">parking</option>
+			<option value="supermarket">supermarket</option>
+			<option value="other">other</option>
+		</select>
+		<br>
+		Radius:
+		<input name = "Radius" type = "text" id = "radius">
+		<br>
+		<div id="hidden">
+			Other:
+			<input name = "Other" type = "text" id = "other">
+		</div>
+			<input type = "button" value = "Submit" onclick= "findNearby(facilities.value, Radius.value, Other.value)">
+	</form>
+
+			<form class="google_maps_form">
+				Destination:
+				<input name = "Destination" type = "text" id = "Destination">
+				<br>
+				<input type="radio" name="transportation" id="walking" value = "WALKING">walking<br>
+				<input type="radio" name="transportation" id="driving" value = "DRIVING">driving<br>
+				<input type="radio" name="transportation" id="transit" value = "TRANSIT">transit<br>
+				<input type = "button" value = "Submit" onclick= "findDirections(transportation.value, Destination.value)">
+	</form>
+				<br> <br>
+				<br>
+				<br>
+
+				<div id="directions"></div>
+</body>
+
+</html>

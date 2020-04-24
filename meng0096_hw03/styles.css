@@ -1,0 +1,175 @@
+.pac-container {
+    z-index: 1100 !important;
+}
+.table2 {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 50%;
+	float: left;
+	margin-bottom:15px;
+}
+
+td,
+th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+tr:nth-child(odd) {
+	background-color: white;
+}
+#container {
+	width: 535px;
+	background: #ffffff;
+	padding: 20px;
+	margin: 90px auto;
+	border-radius: 5px;
+	height: 150px;
+	border: 2px solid gray;
+}
+#header {
+	text-align: center;
+	background-color: #FEFFED;
+	border-radius: 5px;
+	margin: -39px -20px 10px -20px;
+}
+h2{
+	padding-top: 10px;
+}
+#content {
+	margin-left: 57px;
+	margin-top: 40px;
+}
+#register label{
+	margin-right:5px;
+}
+#register input {
+	padding: 5px 14px;
+	border: 1px solid #d5d9da;
+	box-shadow: 0 0 9px #0E34F5 inset;
+	width: 272px;
+	font-size: 1em;
+	height: 25px;
+}
+#password_checking {
+	text-align: center;
+	margin:0 auto;
+}
+#password_color {
+	background-color:green;
+	width:0%;
+	margin: auto;
+}
+.left {
+	float:left;
+}
+.navigation {
+	height: 30px;
+	text-align : center;
+}
+.grid-container {
+  display: grid;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.item1 {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.item2 {
+  grid-column: 3;
+  grid-row: 1 / span 1;
+}
+
+.item3 {
+  grid-column: 3 / span 1;
+  grid-row: 3;
+}
+.item5 {
+  grid-column: 1 / span 1;
+  grid-row: 3;
+}
+.picture {
+	width: 50px;
+	height: 50px;
+	display: none;
+}
+.picture2 {
+	width: 350px;
+	height: 300px;
+	float:right;
+}
+
+#map {
+	height: 100%;
+	width: 70%;
+	float: left;
+	position:absolute;
+	margin-top:450px;
+}
+
+#map2 {
+	height: 45%;
+	width: 45%;
+	float: left;
+	margin-left:20px;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color:Dodgerblue;
+}
+.google_form {
+	
+	background-color:white;
+	border: 3px solid black;
+    height: 30%;
+    text-align: center;
+    width: 25%;
+    float: right;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.google_maps_form {
+	background-color: white;
+	border: 3px solid black;
+    height: 30%;
+    text-align: center;
+    width: 25%;
+    margin-bottom: 20px;
+    padding: 10px;
+    position:relative;
+    float:right;
+    top:250px;
+    right:-400px;
+    
+}
+#hidden {
+	display: none;
+}
+#directions {
+	display:none;
+	background-color:white;
+	width:15%;
+	height: 50%;
+	white-space: pre-wrap;
+	overflow-y: auto;
+    overflow-x: auto; 
+    position: relative;
+    left:20px;
+    top:100px;
+}

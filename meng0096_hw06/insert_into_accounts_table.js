@@ -22,9 +22,9 @@ con.connect(function(err) {
   console.log("Connected!");
 
   var rowToBeInserted = {
-    acc_name: 'charlie', // replace with acc_name chosen by you OR retain the same value
-    acc_login: 'charlie', // replace with acc_login chosen by you OR retain the same vallue
-    acc_password: crypto.createHash('sha256').update("tango").digest('base64') // replace with acc_password chosen by you OR retain the same value
+    acc_name: 'Kyle', // replace with acc_name chosen by you OR retain the same value
+    acc_login: 'Kyle', // replace with acc_login chosen by you OR retain the same vallue
+    acc_password: crypto.createHash('sha256').update("Meng").digest('base64') // replace with acc_password chosen by you OR retain the same value
   };
 
   var sql = ``;
